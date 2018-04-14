@@ -1,0 +1,172 @@
+/* COLORS
+ * Violet : #5b2333
+ * Blanc : #f7f4f3
+ * Gris : #564d4a
+ * Orange : #f24333
+ * Rouge : #ba1b1d
+ *
+ */
+
+body {
+	color: black;
+}
+header {
+	position: relative;
+	padding: 8px;
+	font-size: 1em;
+	background-color: black;
+	color: white;
+}
+.contact {
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.contact ~ div {
+	background-color: white;
+}
+.etat {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: #d7d7d6;
+	padding: 8px;
+}
+.etat span {
+	color: #5b2333;
+}
+.hero h1{
+	font-weight: 900;
+	color: #5b2333;
+	letter-spacing: 1.3em;
+}
+.hero-image {
+	opacity: 0.09;
+}
+.stack {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: #d7d7d6;
+}
+.stack div {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.stack h3, .stack .ui, .stack .server, .stack .sql {
+	color: white;
+	background-color: black;
+}
+.stack .ui:hover, .stack .server:hover, .stack .sql:hover {
+	color: white;
+	background-color: black;
+}
+.valeurs {
+	padding: 20px 60px;
+}
+.valeurs article h2, .valeurs article blockquote {
+	color: #5b2333 !important;
+}
+.valeurs a {
+	color: black !important;
+}
+.valeurs ul {
+	padding: 0px 60px;
+}
+.competences {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 20px;
+}
+.competence, .competence h3, .competence ul {
+	font-size: 1.3em;
+	color: white !important;
+}
+.experiences {
+	background-color: #d7d7d6;
+	color: #5b2333;
+	padding: 20px;
+	margin: 10px;
+}
+.experiences h3 {
+	color: #5b2333;
+}
+.titre_competence {
+	padding: 10px;
+	background-color: black;
+	color: white;
+	margin-left: 0px;
+}
+.experiences div {
+	color: #beb2c8;
+	background-color: #5b2333;
+	padding: 10px;
+}
+.uk-accordion-title {
+	display: flex !important;
+}
+.uk-accordion-content {
+	margin-top: 0px;
+}
+.uk-grid > * {
+	padding-left: 0px !important;
+}
+.uk-badge {
+	justify-content: space-between !important;
+	padding: 0px 2px;
+}
+.uk-accordion-content {
+	margin-top: 0px !important;
+}
+.adp {
+	background-image: url( "./images/adp_faded.png" );
+	background-size: 75%;
+}
+.la-poste {
+	background-image: url( "./images/la_poste_faded.png" );
+	background-size: 50%;
+}
+.obexto {
+	background-image: url( "./images/obexto_faded.png" );
+}
+.autres {
+	background-image: url( "./images/autres_faded.png" );
+	white-space: pre;
+}
+.adp, .la-poste, .obexto, .autres {
+	background-repeat: no-repeat;
+	background-origin: padding-box;
+	background-position: right bottom;
+	background-attachment: scroll;
+}
+footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 10px;
+	background-color: #5b2333;
+	color: white;
+}
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+.separateur {
+	height: 10px;
+	background-color: white;
+}
