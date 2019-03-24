@@ -7,20 +7,24 @@
  *
  */
 
-body {
-	color: black;
-}
-header {
-	position: relative;
-	padding: 8px;
-	font-size: 1em;
-	background-color: black;
-	color: white;
-}
+
+/*
+ * CONTACT HEADER */
 .contact {
 	position: absolute;
 	right: 10px;
 	cursor: pointer;
+}
+.d {
+	color: #f5a106 !important;
+	font-weight: bold;
+}
+.t {
+	font-weight: bold;
+}
+.p {
+	color: #087108 !important;
+	font-weight: bold;
 }
 .contact ~ div {
 	background-color: white;
@@ -35,17 +39,107 @@ header {
 .etat span {
 	color: #5b2333;
 }
+
+
+/*
+ * HERO */
+.hero {
+	text-align: center !important;
+}
 .hero h1{
-	font-weight: 900;
 	color: #5b2333;
+	font-weight: 900;
 	letter-spacing: 1.3em;
+	line-height: 2em;
+}
+.uk-inline {
+	max-height: 500px;
 }
 .hero-image {
 	opacity: 0.09;
 }
+
+
+/*
+ * RESPONSIVE */
+@media screen and ( max-width: 820px ){
+	.
+	.stack {
+		display: block;
+	}
+	.stack div {
+	}
+	.hero h1 {
+		line-height: 1.8;
+		letter-spacing: 1.10em;
+	}
+}
+@media screen and ( max-width: 770px ){
+	.hero h1 {
+		line-height: 1.5;
+		letter-spacing: 1.0em;
+	}
+}
+@media screen and ( max-width: 730px ){
+	.hero h1 {
+		line-height: 1.3;
+		letter-spacing: 0.6em;
+	}
+}
+@media screen and ( max-width: 555px ){
+	.etat {
+		display: flex;
+		flex-direction: column;
+	}
+	.hero h1 {
+		line-height: 2em;
+		letter-spacing: 0.25em;
+		font-size: 1.8em;
+	}
+}
+@media screen and ( max-width: 845px ){
+	.titre_experience {
+		display: flex !important;
+		flex-direction: column !important;	
+	}
+	.entreprise {
+		display: inline-block;
+		width: 100% !important; 
+		padding: 5px !important;
+	}
+	.uk-width-1-40 {
+		width: 100% !important; 
+	}
+	.uk-accordion li {
+		position: relative;
+		padding: 0px !important;
+	}
+	.uk-accordion-title::after {
+		position: absolute;
+		top: 0px;	
+		right: 0px;	
+		padding: 5px !important;
+	}
+}
+
+
+/*
+ * STACK */
+.uk-card-header {
+	padding: 20px 10px 10px 10px; 
+	box-sizing: border-box;
+	width: 100%;
+	text-align: center;	
+}
+.uk-card-default .uk-card-header {
+	border-bottom: 1px solid #5c066c;
+}	
+.icon-spread{
+	padding: 0px 20px;
+}
 .stack {
 	display: flex;
-	flex-direction: row;
+	flex-flow: row wrap; 
 	justify-content: space-between;
 	background-color: #d7d7d6;
 }
@@ -53,6 +147,20 @@ header {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+/*
+.flip {
+	display: block;
+        position: fixed;
+	z-index: 9999;
+        width: 80% !important;
+        height: 80%;
+	margin: auto;
+	transform: scaleY( 2 );
+	transform: rotateY( 180deg );
+	background-color: yellow;
+	transition: all 0.5s ease 0s;
+}
+*/
 .stack h3, .stack .ui, .stack .server, .stack .sql {
 	color: white;
 	background-color: black;
@@ -61,11 +169,15 @@ header {
 	color: white;
 	background-color: black;
 }
+
+/*
+ * VALEURS */
 .valeurs {
 	padding: 20px 60px;
 }
 .valeurs article h2, .valeurs article blockquote {
 	color: #5b2333 !important;
+	text-align: left !important;
 }
 .valeurs a {
 	color: black !important;
@@ -73,15 +185,42 @@ header {
 .valeurs ul {
 	padding: 0px 60px;
 }
+
+
+/*
+ * COMPETENCES */
+.competence_wrapper, .divers {
+	color: #5b2333 !important;
+	background-color: #d7d7d6;
+	padding: 20px;
+	margin: 10px;
+}
+.competence_wrapper .uk-icon, .competence_wrapper .uk-icon + span {
+	display: block;
+	text-align: center;
+}
 .competences {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 20px;
+}
+.competence div {
+	margin-bottom: 10px;
 }
 .competence, .competence h3, .competence ul {
-	font-size: 1.3em;
+	font-size: 1.0em;
 	color: white !important;
+}
+.titre_experience {
+	padding: 10px;
+	font-size: 1.1em !important;
+	background-color: black;
+	color: white;
+	margin-left: 0px;
+}
+.experience_description {
+	margin-top: 30px;
 }
 .experiences {
 	background-color: #d7d7d6;
@@ -89,22 +228,31 @@ header {
 	padding: 20px;
 	margin: 10px;
 }
-.experiences h3 {
+.competence_wrapper h3, .experiences h3, .divers h3 {
 	color: #5b2333;
 }
-.titre_competence {
-	padding: 10px;
-	background-color: black;
-	color: white;
-	margin-left: 0px;
-}
-.experiences div {
-	color: #beb2c8;
-	background-color: #5b2333;
-	padding: 10px;
+.image_experience {
+	height: 25px !important;
+	padding-right: 8px;
+}	
+.experiences div:nth-child( 1 ) {
+	color: #5b2333;
+	background-color: #beb2c8;
+	padding: 25px;
 }
 .uk-accordion-title {
+	font-size: 1.2em;
 	display: flex !important;
+}
+[uk-accordion] a, .uk-accordion-content  {
+	letter-spacing: initial;
+	padding: 10px !important;
+}
+.uk-width-1-20 {
+	width: calc( 100% * 1 / 10.001 ) !important;
+}
+.uk-width-1-40 {
+	width: calc( 100% * 0.400001 );
 }
 .uk-accordion-content {
 	margin-top: 0px;
@@ -114,14 +262,16 @@ header {
 }
 .uk-badge {
 	justify-content: space-between !important;
-	padding: 0px 2px;
 }
 .uk-accordion-content {
 	margin-top: 0px !important;
 }
-.adp {
-	background-image: url( "./images/adp_faded.png" );
-	background-size: 75%;
+
+.recent {
+
+}
+.pmu {
+
 }
 .la-poste {
 	background-image: url( "./images/la_poste_faded.png" );
@@ -134,11 +284,51 @@ header {
 	background-image: url( "./images/autres_faded.png" );
 	white-space: pre;
 }
-.adp, .la-poste, .obexto, .autres {
+.recent, .pmu, .adp, .la-poste, .obexto, .autres {
 	background-repeat: no-repeat;
 	background-origin: padding-box;
 	background-position: right bottom;
 	background-attachment: scroll;
+}
+.uk-tab {
+	background-color: #222;
+}
+
+
+/*
+ * DIVERS ... */
+.divers li a, .divers li.active a, li[aria-expanded="true"] a {
+	color: white !important;
+}
+.separateur {
+	height: 10px;
+	background-color: white;
+}
+
+
+/*
+ * HTML RAW TAGS */
+body {
+	color: black;
+	font-size: 14px;
+}
+h2, h3, .uk-article-title {
+	font-size: 1.2em;
+	letter-spacing: 1em;
+	margin: 0;
+}
+header {
+	position: relative;
+	padding: 8px;
+	font-size: 1em;
+	background-color: black;
+	color: white;
+}
+a {
+	color: white;
+}
+a, a:hover {
+	text-decoration: none;
 }
 footer {
 	display: flex;
@@ -166,7 +356,6 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
-.separateur {
-	height: 10px;
-	background-color: white;
+header, .uk-accordion-title {
+	background-color: #222 !important;
 }
