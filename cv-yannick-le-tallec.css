@@ -6,7 +6,9 @@
  * Rouge : #ba1b1d
  *
  */
-
+:root {
+       --bgcolor-1: #456456;
+}
 
 /*
  * CONTACT HEADER */
@@ -14,6 +16,7 @@
 	position: absolute;
 	right: 10px;
 	cursor: pointer;
+	var( --bgcolor-1 );
 }
 .d {
 	color: #f5a106 !important;
@@ -33,8 +36,9 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	background-color: #d7d7d6;
+	background-color: #e6e6e6;
 	padding: 8px;
+	border-bottom: 1px solid #5c066c;
 }
 .etat span {
 	color: #5b2333;
@@ -46,11 +50,12 @@
 .hero {
 	text-align: center !important;
 }
-.hero h1{
+.hero h2{
 	color: #5b2333;
+	font-size: 2em;
 	font-weight: 900;
 	letter-spacing: 1.3em;
-	line-height: 2em;
+	line-height: 4em;
 }
 .uk-inline {
 	max-height: 500px;
@@ -141,7 +146,7 @@
 	display: flex;
 	flex-flow: row wrap; 
 	justify-content: space-between;
-	background-color: #d7d7d6;
+	background-color: #bd90ca80;
 }
 .stack div {
 	margin-top: 5px;
@@ -162,8 +167,8 @@
 }
 */
 .stack h3, .stack .ui, .stack .server, .stack .sql {
-	color: white;
-	background-color: black;
+	color: #5c066c;
+	background-color: rgba(255,255,255,5);
 }
 .stack .ui:hover, .stack .server:hover, .stack .sql:hover {
 	color: white;
@@ -174,6 +179,7 @@
  * VALEURS */
 .valeurs {
 	padding: 20px 60px;
+	margin-top: 20px;
 }
 .valeurs article h2, .valeurs article blockquote {
 	color: #5b2333 !important;
@@ -191,9 +197,15 @@
  * COMPETENCES */
 .competence_wrapper, .divers {
 	color: #5b2333 !important;
-	background-color: #d7d7d6;
+	background-color: #bd90ca80;
 	padding: 20px;
-	margin: 10px;
+}
+.competence_wrapper h3, .experiences h3, .divers h3 {
+	color: #5b2333;
+	padding: 0px 0px 10px 10px;
+}
+.divers h3::first-letter, .experiences h3::first-letter, .competence_wrapper h3::first-letter {
+	font-size: 2em;
 }
 .competence_wrapper .uk-icon, .competence_wrapper .uk-icon + span {
 	display: block;
@@ -210,41 +222,58 @@
 }
 .competence, .competence h3, .competence ul {
 	font-size: 1.0em;
-	color: white !important;
+	color: #5c066c !important;
+	background-color: #e6e6e6;
 }
+.uk-list-bullet > li::before {
+	background-image: initial;
+	content: "\2738" !important;
+}
+
+/*
+ * EXPERIENCES */
 .titre_experience {
 	padding: 10px;
 	font-size: 1.1em !important;
 	background-color: black;
 	color: white;
 	margin-left: 0px;
+	border-radius: 5px;
 }
 .experience_description {
 	margin-top: 30px;
 }
 .experiences {
-	background-color: #d7d7d6;
+	background-color: #d2bcd8;
 	color: #5b2333;
 	padding: 20px;
-	margin: 10px;
-}
-.competence_wrapper h3, .experiences h3, .divers h3 {
-	color: #5b2333;
 }
 .image_experience {
 	height: 25px !important;
 	padding-right: 8px;
 }	
-.experiences div:nth-child( 1 ) {
+.experiences .uk-accordion {
+	margin-top: 0px !important;
+}
+#experiences_autres {
+	padding: 0px!important;
+}
+#experiences_autres div {
+	padding: 20px;
+}
+#experiences_autres, .experiences .uk-accordion-content div:nth-of-type( odd ), .experiences .uk-accordion-content div:nth-of-type( even ) {
+	border-radius: 5px;
+}
+.experiences .uk-accordion-content div {
 	color: #5b2333;
-	background-color: #beb2c8;
-	padding: 25px;
+	border: 5px solid #cbf7f9;
 }
 .uk-accordion-title {
 	font-size: 1.2em;
 	display: flex !important;
+	background-color: #5c066c !important;
 }
-[uk-accordion] a, .uk-accordion-content  {
+[uk-accordion] a  {
 	letter-spacing: initial;
 	padding: 10px !important;
 }
@@ -256,12 +285,17 @@
 }
 .uk-accordion-content {
 	margin-top: 0px;
+	border: 1px solid #5c066c;
+	border-radius: 5px;
+	padding: 20px !important;
 }
 .uk-grid > * {
 	padding-left: 0px !important;
 }
 .uk-badge {
 	justify-content: space-between !important;
+	color: #5c066c !important;
+	background-color: white !important;
 }
 .uk-accordion-content {
 	margin-top: 0px !important;
@@ -300,9 +334,34 @@
 .divers li a, .divers li.active a, li[aria-expanded="true"] a {
 	color: white !important;
 }
-.separateur {
+.divers .uk-tab .uk-active > a{
+	border-bottom: 2px solid white
+}
+.divers .uk-tab::before {
+	border-bottom: initial;
+}
+.separateur_blanc, .separateur_bleu, .separateur_violet {
 	height: 10px;
+}
+#divers_content {
+	padding: 0 15px;
+}
+.uk-tab {
+	margin: 0!important;
+	border-radius: 5px;
+	background-color: #5c066c;
+}
+
+/*
+ * SEPARATEURS */
+.separateur_blanc {
 	background-color: white;
+}
+.separateur_bleu {
+	background-color: #92eff37a;
+}
+.separateur_violet {
+	background-color: #5c066c;
 }
 
 
@@ -321,7 +380,7 @@ header {
 	position: relative;
 	padding: 8px;
 	font-size: 1em;
-	background-color: black;
+	background-color: #5c066c;
 	color: white;
 }
 a {
@@ -335,7 +394,7 @@ footer {
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 10px;
-	background-color: #5b2333;
+	background-color: #5c066c;
 	color: white;
 }
 blockquote {
@@ -355,7 +414,4 @@ blockquote:before {
 }
 blockquote p {
   display: inline;
-}
-header, .uk-accordion-title {
-	background-color: #222 !important;
 }

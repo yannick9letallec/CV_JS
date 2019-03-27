@@ -13,13 +13,13 @@ function contact( event ) {
 		var tel = {
 			view: function(){
 				return m( "span", [
-					m( "a", [
-						m( "span", { "href": "tel:0651345331", "rel": "external", "uk-icon": "icon: phone; ratio: 1" } ),
+					m( "a", { "href": "tel:0651345331" }, [
+						m( "span", { "uk-icon": "icon: phone; ratio: 1" } ),
 						m( "span", "06 51 34 53 31 " )
 					] ),
 					m( "span", " / " ),
-					m( "a", [
-						m( "span", { "class": "email", "onclick": "envoyerEmail( this );", "rel": "external",  "uk-icon": "icon: mail; ratio: 1" } ),
+					m( "a", { "href": "mailto:yannick9letallec@gmail.com" }, [
+						m( "span", { "class": "email", "rel": "external",  "uk-icon": "icon: mail; ratio: 1" } ),
 						m( "span", " yannick9letallec@gmail.com " ) 
 					] )
 				] )
@@ -31,24 +31,26 @@ function contact( event ) {
 
 		m.mount( el, tel )
 		init = 1
-
-		var email_elem = document.querySelector( ".email" )
-		email_elem.addEventListener( "click", function( event ) {
-			envoyerEmail ( event )
-		} )
 	}
 }
 function reinitContact( event ){
 	event.target.innerText = contactInitialText
 	init = 0
 }
-function envoyerEmail( event ){
-	window.location.href = "mailto:yannick9letallec@gmail.com"
-}
 function initPAGE( ){
-	var SEPARATEUR = {
+	var SEPARATEUR_B = {
 		view: function() {
-			return m( "div", { "class": "separateur" } )
+			return m( "div", { 'class': 'separateur_bleu' } )
+		}
+	}
+	var SEPARATEUR_W = {
+		view: function() {
+			return m( "div", { 'class': 'separateur_blanc' } )
+		}
+	}
+	var SEPARATEUR_V = {
+		view: function() {
+			return m( "div", { 'class': 'separateur_violet' } )
 		}
 	}
 	var HEADER = {
@@ -77,9 +79,9 @@ function initPAGE( ){
 	var HERO = {
 		view: function() {
 			return m( "section", { "class" : "uk-inline" }, [
-				m( "img", { "class" : "hero-image", "src": "images/javascript-code.png", "alt": "" } ), 
+				m( "img", { "class" : "hero-image", "src": "images/javascript-code.png", "alt": "code javascript / html / css aléatoire" } ), 
 				m( "div", { "class" : "hero uk-text-center uk-overlay uk-position-center uk-light" }, [
-					m( "h1", { "uk-scrollspy": "cls: uk-animation-fade; repeat: true;" }, m.trust( "JAVASCRIPT" + "<br />" + "FULLSTACK" + "<br />" + "DEVELOPPER" ) )
+					m( "h2", { "uk-scrollspy": "cls: uk-animation-fade; repeat: true;" }, m.trust( "JAVASCRIPT" + "<br />" + "FULLSTACK" + "<br />" + "DEVELOPPER" ) )
 				] )
 			] )
 		}
@@ -143,15 +145,15 @@ function initPAGE( ){
 						return m( "LI", m( VALEUR_ARTICLE, {  titre: v.titre, icon: v.icon, text: v.valeur } ) ) 
 					// } ),
 					} ) ),
-					m( "A", { "class": "uk-position-center-left uk-position-small", "href": "#", "uk-slidenav-previous": "true", "uk-slideshow-item": "previous", "uk-icon": "icon: chevron-left; ratio: 1;" } ),
-					m( "A", { "class": "uk-position-center-right uk-position-small", "href": "#", "uk-slidenav-next": "true", "uk-slideshow-item": "next", "uk-icon": "icon: chevron-right; ratio: 1;" } )
+					m( "A", { "class": "uk-position-center-left uk-position-small", "uk-slidenav-previous": "true", "uk-slideshow-item": "previous", "uk-icon": "icon: chevron-left; ratio: 1;" } ),
+					m( "A", { "class": "uk-position-center-right uk-position-small","uk-slidenav-next": "true", "uk-slideshow-item": "next", "uk-icon": "icon: chevron-right; ratio: 1;" } )
 				] )
 		}
 	}
 	var COMPETENCES = {
 		view: function( vnode ){
 			return m( "DIV", { "class": "competence_wrapper" },
-				m( "H3", "COMPETENCES CLEFS :" ),
+				m( "H3", "\u272A COMPETENCES CLEFS :" ),
 				m( ".competences.uk-grid-match.uk-grid-small.uk-child-width-expand@s", data.competences.map( function( val, ind, t ){
 					return m("DIV",
 						m(".competence.uk-light.uk-background-secondary.uk-padding.uk-card.uk-card-default.uk-card-body", { "uk-scrollspy": "cls:" + applyAnimation( ind, t ) +"; repeat: true;" }, [
@@ -169,29 +171,29 @@ function initPAGE( ){
 	}
 	var EXP_SIMPLE = {
 		view: function( vnode ){
-			return m( "DIV", { "class": "adp uk-accordion-content" }, m.trust( vnode.attrs.description ), [
-				m( "UL", { "class": "uk-list uk-list-bullet" }, vnode.attrs.lignes_description.map( function( v2, i2, a2 ){
-					return m( "li", m.trust( v2 ) )
+			return m( "DIV", { "class": "uk-accordion-content" }, m.trust( vnode.attrs.description ), [
+				m( "UL", { "class": "uk-list uk-list-bullet" }, vnode.attrs.lignes_description.map( function( v, i, a ){
+					return m( "li", m.trust( v ) )
 				} ) ),
 				m( "br" ),
 				"Environnement Technique :",
-				m( "UL", { "class": "uk-list uk-list-bullet" }, vnode.attrs.competences_techniques.map( function( v3, i3, a3 ){
-					return m( "LI", m.trust( v3 ) )
+				m( "UL", { "class": "uk-list uk-list-bullet" }, vnode.attrs.competences_techniques.map( function( v, i, a ){
+					return m( "LI", m.trust( v ) )
 				} ) )
 			] )
 		}
 	}
 	var EXP_COMPLEXE = {
 		view: function( vnode ){
-			return m( "DIV", { "class": "adp uk-accordion-content" }, vnode.attrs.autres.map( function( v, i, a ) { 
+			return m( "DIV", { "id": "experiences_autres", "class": "uk-accordion-content" }, vnode.attrs.autres.map( function( v, i, a ) { 
 				return m( "DIV", m.trust( v.description ), [ 
-					m( "UL", { "class": "uk-list uk-list-bullet experience_description" }, v.lignes_description.map( function( v2, i2, a2 ){
-						return m( "li", m.trust( v2 ) )
+					m( "UL", { "class": "uk-list uk-list-bullet experience_description" }, v.lignes_description.map( function( v, i, a ){
+						return m( "li", m.trust( v ) )
 					} ) ),
 					m( "br" ),
 					"Environnement Technique :",
-					m( "UL", { "class": "uk-list uk-list-bullet" }, v.competences_techniques.map( function( v3, i3, a3 ){
-						return m( "LI", m.trust( v3 ) )
+					m( "UL", { "class": "uk-list uk-list-bullet" }, v.competences_techniques.map( function( v, i, a ){
+						return m( "LI", m.trust( v ) )
 					} ) )
 				] )
 			} ) )
@@ -200,12 +202,12 @@ function initPAGE( ){
 	var EXPERIENCES = {
 		view: function( vnode ){
 			return m( ".experiences", [
-				m( "H3", "PROJETS : " ), 
+				m( "H3", "\u272A PROJETS : " ), 
 				m( "UL", { "uk-accordion": "collapsible: true" }, data.experiences.map( function( v, i, a ){
 					return m( "LI", {}, [
-						m( "A", { "uk-scrollspy": "cls:" + initExperienceAnimation( i ) + "; repeat: true;", "class": "titre_experience uk-grid uk-accordion-title", "href": ""}, [
+						m( "A", { "uk-scrollspy": "cls:" + initExperienceAnimation( i ) + "; repeat: true;", "class": "titre_experience uk-grid uk-accordion-title" }, [
 							m( "SPAN", { "class": "entreprise uk-width-1-20" }, [
-								v.experience.logo ? m( "img", { "class": "image_experience", "src": v.experience.logo } ) : "", 
+								v.experience.logo ? m( "img", { "alt": v.experience.img_alt, "class": "image_experience", "src": v.experience.logo } ) : "", 
 							] ),
 							m( "SPAN", { "class": "entreprise uk-width-1-5" }, [
 								m( "SPAN", { "class": "uk-badge" }, " Entreprise : " ),
@@ -216,7 +218,7 @@ function initPAGE( ){
 								" " + v.experience.date
 							] ),
 							m( "SPAN", { "class": "entreprise uk-width-1-40" }, [
-								m( "SPAN", { "class": "uk-badge" }, "Poste : " ),
+								m( "SPAN", { "class": "uk-badge" }, "Rôle : " ),
 								" " + v.experience.poste
 							] )
 						]),
@@ -237,7 +239,7 @@ function initPAGE( ){
 	var DIVERS = {
 		view: function( vnode ) {
 			return m( "DIV", { "class" : "divers" }, [
-				m( "H3", "ANNEXE : " ),
+				m( "H3", "\u272A ANNEXE : " ),
 				m( "UL", { class: "uk-tab", "data-uk-tab": "{connect:'#divers_content'}" }, vnode.attrs.divers.divers_titre.map( function( v, i, a ){
 					return m( "LI",
 						m( "A", { onclick: toggleSign }, m.trust( v ) )
@@ -255,7 +257,6 @@ function initPAGE( ){
 		view: function() {
 			return m( "footer", { "class" : "footer" }, [
 				m( "span", "Yannick Le Tallec .2019" ),
-				m( "span", { "class" : "mobilite" }, "Mobilité : Totale" ),
 				m( "span", "Mithril.JS & UIKit : Merci !" )
 			] )
 		}
@@ -264,18 +265,48 @@ function initPAGE( ){
 		view: function() {
 			return m( "main", [
 				m( HEADER ),
+
+				m( SEPARATEUR_B ),
+
 				m( ETAT ),
 				m( HERO ),
-				m( SEPARATEUR ),
+
+				m( SEPARATEUR_B ),
+
 				m( STACK ),
-				m( SEPARATEUR ),
+
+				m( SEPARATEUR_B ),
+
 				m( VALEURS ),
-				m( SEPARATEUR ),
+
+				m( SEPARATEUR_W ),
+				m( SEPARATEUR_V ),
+				m( SEPARATEUR_V ),
+				m( SEPARATEUR_W ),
+
 				m( COMPETENCES ),
-				m( SEPARATEUR ),
+
+				m( SEPARATEUR_B ),
+				m( SEPARATEUR_W ),
+				m( SEPARATEUR_W ),
+				m( SEPARATEUR_W ),
+				m( SEPARATEUR_B ),
+
 				m( EXPERIENCES ),
-				m( SEPARATEUR ),
+
+				m( SEPARATEUR_W ),
+				m( SEPARATEUR_B ),
+				m( SEPARATEUR_B ),
+				m( SEPARATEUR_B ),
+				m( SEPARATEUR_W ),
+
 				m( DIVERS, { divers: data.divers } ),
+
+				m( SEPARATEUR_B ),
+				m( SEPARATEUR_W ),
+				m( SEPARATEUR_B ),
+				m( SEPARATEUR_W ),
+				m( SEPARATEUR_B ),
 				m( FOOTER )
 			] )
 		}
@@ -330,12 +361,12 @@ function initPAGE( ){
 		// resetting target siblings
 		for( k = 0; k < n; k++ ){
 			sibling_text = lis[ k ].innerHTML
-			lis[ k ].innerHTML = sibling_text.replace( /\u25BD/i, "\u25B7" )
+			lis[ k ].innerHTML = sibling_text.replace( /\u25BC/i, "\u25B6" )
 		}
 	
 		// adapting current event target
 		var t = event.target.innerHTML 
-		event.target.innerHTML = t.replace( /\u25B7/i, "\u25BD" )
+		event.target.innerHTML = t.replace( /\u25B6/i, "\u25BC" )
 	}
 	function initExperienceAnimation( i ){
 		if( i % 2 === 0 || i % 2 === -0 ){
@@ -358,17 +389,17 @@ function initPAGE( ){
 				return "uk-animation-scale-up"
 		}
 	}
-	document.querySelector( ".hero h1" ).addEventListener( "click", function( ev ){
+	document.querySelector( ".hero h2" ).addEventListener( "click", function( ev ){
 		addTitleShake( this )
 
 		setTimeout( function( ){
 			removeTitleShake( this )
 		}.bind( this ), 1000 ) 
 	} )
-	document.querySelector( ".hero h1" ).addEventListener( "mouseover", function( ev ){
+	document.querySelector( ".hero h2" ).addEventListener( "mouseover", function( ev ){
 		addTitleShake( this )
 	} )
-	document.querySelector( ".hero h1" ).addEventListener( "mouseleave", function( ev ){
+	document.querySelector( ".hero h2" ).addEventListener( "mouseleave", function( ev ){
 		removeTitleShake( this )
 	} )
 	function addTitleShake( el ){
