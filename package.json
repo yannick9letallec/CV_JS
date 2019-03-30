@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ospec",
     "dev": "./node_modules/webpack/bin/webpack.js -w --display-modules",
     "prod": "WIP",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.prod.config.js"
   },
   "author": "yannick le tallec",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^5.0.2",
     "gulp-mini-css": "0.0.3",
     "less": "^3.0.1",
     "mithril": "^1.1.6",

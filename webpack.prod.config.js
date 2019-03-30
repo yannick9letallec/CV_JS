@@ -4,26 +4,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const path = require( "path" )
 
 let config = {
-	mode: "development",
+	mode: "production",
 	entry: [ "./cv-yannick-le-tallec.js" ],
-	devtool: 'inline-source-map',
-	devServer: {
-		hot: true,
-		compress: true,
-		index: './index.html',
-		overlay: {
-			errors: true,
-			warning: true
-		},
-		host: '0.0.0.0',
-		useLocalIp: true,
-		watchContentBase: true,
-		port: 1977
-	},
 	plugins: [
-		new HtmlWebpackPlugin({
-
-		}),
 		new CleanWebpackPlugin(),
 		new webpack.HotModuleReplacementPlugin()
 	],
@@ -44,10 +27,6 @@ let config = {
 				use: [ 'html-loader' ]
 			}
 		]
-	},
-	watch: true,
-	watchOptions: {
-		ignored: '/node_modules'
 	}
 }
 
