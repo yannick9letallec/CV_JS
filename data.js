@@ -1,4 +1,6 @@
 module.exports = { 
+	telephone: '06 51 34 53 31',
+	email: 'yannick9letallec@gmail.com',
 	valeurs: [{
 		titre: "agilite",
 		icon: "heart",
