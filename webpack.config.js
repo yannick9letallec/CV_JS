@@ -1,11 +1,18 @@
 const webpack = require( "webpack" )
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { WebpackPluginServe: Serve } = require( 'webpack-plugin-serve' )
 const path = require( "path" )
 
 let config = {
 	mode: "development",
-	entry: [ "./cv-yannick-le-tallec.js" ],
+	entry: [ "./cv-yannick-le-tallec.js",
+		"webpack-plugin-serve/client"
+	],
+	output: {
+		path: path.resolve( __dirname, './dist' ),
+		filename: "bundle.js"
+	},
 	devtool: 'inline-source-map',
 	devServer: {
 		hot: true,
@@ -21,16 +28,17 @@ let config = {
 		port: 1977
 	},
 	plugins: [
-		new HtmlWebpackPlugin({
-
+		new Serve({
+			port: 1978,
+			hmr: true,
+			liveReload: true
 		}),
-		new CleanWebpackPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new HtmlWebpackPlugin({
+			title: 'CV - YLT',
+			template: 'index.html'
+		}),
+		new CleanWebpackPlugin()
 	],
-	output: {
-		path: path.resolve( __dirname, './dist' ),
-		filename: "bundle.js"
-	},
 	module: {
 		rules: [
 			{

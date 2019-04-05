@@ -1,9 +1,6 @@
-var m = require( 'mithril' )
+// var m = require( 'mithril' )
 
-module.exports = {
-	state: {
-
-	},
+let CONTACT = {
 	view: function( vnode ){
 		return m( "span", [
 			m( "a", { "href": "tel:" + vnode.attrs.telephone }, [

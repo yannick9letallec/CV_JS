@@ -78,6 +78,9 @@
 		line-height: 1.8;
 		letter-spacing: 1.10em;
 	}
+	.uk-position-center {
+		display: block;
+	}
 }
 @media screen and ( max-width: 770px ){
 	.hero h1 {
@@ -96,10 +99,13 @@
 		display: flex;
 		flex-direction: column;
 	}
-	.hero h1 {
+	.hero h2 {
 		line-height: 2em;
 		letter-spacing: 0.25em;
 		font-size: 1.8em;
+	}
+	.uk-position-center {
+		display: initial !important;
 	}
 }
 @media screen and ( max-width: 845px ){
@@ -125,6 +131,9 @@
 		right: 0px;	
 		padding: 5px !important;
 	}
+	.competence h3 {
+		font-size: 0.8em !important;
+	}	
 }
 
 
@@ -370,6 +379,7 @@
 body {
 	color: black;
 	font-size: 14px;
+	width: 100%;
 }
 h2, h3, .uk-article-title {
 	font-size: 1.2em;

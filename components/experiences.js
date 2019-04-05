@@ -9,7 +9,7 @@ module.exports = {
 			m( "H3", "\u272A PROJETS : " ), 
 			m( "UL", { "uk-accordion": "collapsible: true" }, vnode.attrs.data.experiences.map( function( v, i, a ){
 				return m( "LI", {}, [
-					m( "A", { "uk-scrollspy": "cls:" + vnode.attrs.initExperienceAnimation( i ) + "; repeat: true;", "class": "titre_experience uk-grid uk-accordion-title" }, [
+					m( "A", { "uk-scrollspy": "cls:" + vnode.attrs.initExperienceAnimation + "; repeat: true;", "class": "titre_experience uk-grid uk-accordion-title" }, [
 						m( "SPAN", { "class": "entreprise uk-width-1-20" }, [
 							v.experience.logo ? m( "img", { "alt": v.experience.img_alt, "class": "image_experience", "src": v.experience.logo } ) : "", 
 						] ),

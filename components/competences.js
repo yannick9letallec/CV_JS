@@ -9,7 +9,7 @@ module.exports = {
 			m( "H3", "\u272A COMPETENCES CLEFS :" ),
 			m( ".competences.uk-grid-match.uk-grid-small.uk-child-width-expand@s", vnode.attrs.data.competences.map( function( val, ind, t ){
 				return m("DIV",
-					m(".competence.uk-light.uk-background-secondary.uk-padding.uk-card.uk-card-default.uk-card-body", { "uk-scrollspy": "cls:" + vnode.attrs.applyAnimation( ind, t ) +"; repeat: true;" }, [
+					m(".competence.uk-light.uk-background-secondary.uk-padding.uk-card.uk-card-default.uk-card-body", { "uk-scrollspy": "cls:" + vnode.attrs.applyAnimation +"; repeat: true;" }, [
 						m("h3.uk-card-title", [
 							m("div[uk-icon='icon:" + t[ ind ].icon + "; ratio: 2']"), " ",
 							m("span", t[ ind ].entry )

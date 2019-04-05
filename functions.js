@@ -52,9 +52,9 @@ function removeTitleShake( event ){
 
 contactInitialText = "",
 	init = 0
-function contact( event ) {
-	console.dir( event ) 
-	var el = event.target
+function contact( event, telephone, email ) {
+	var el = event.target,
+		data = el.dataset
 
 	if( init === 0 ){
 
@@ -64,8 +64,8 @@ function contact( event ) {
 		m.mount( el, { 
 			view: function(){ 
 				return m( CONTACT, { 
-					telephone: data.telephone, 
-					email: data.email 
+					telephone: data[ 'tel' ], 
+					email: data[ 'email' ] 
 				} ) 
 			}
 		} )
