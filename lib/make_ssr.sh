@@ -34,7 +34,7 @@ cp functions.js ./public/
 cp data.js ./public/
 cp cv-yannick-le-tallec.css ./public/
 cp -r images ./public
-cp node_modules/mithril/mithril/mithril.min.js ./public
+cp node_modules/mithril/mithril.min.js ./public
 cp node_modules/uikit/dist/css/uikit.min.css ./public
 cp node_modules/uikit/dist/js/uikit.min.js ./public
 cp node_modules/uikit/dist/js/uikit-icons.min.js ./public
