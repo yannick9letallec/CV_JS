@@ -5,6 +5,9 @@ then
 	mkdir ./public
 
 fi
+
+rm -r ./public/*
+
 # 0 - remove index.html from public
 rm ./public/index.html 2> /dev/null
 rm ./public/functions.js 2> /dev/null
@@ -30,6 +33,11 @@ cp index.html ./public/index.html
 cp functions.js ./public/
 cp data.js ./public/
 cp cv-yannick-le-tallec.css ./public/
+cp -r images ./public
+cp node_modules/mithril/mithril/mithril.min.js
+cp node_modules/uikit/dist/css/uikit.min.css ./public
+cp node_modules/uikit/dist/js/uikit.min.js ./public
+cp node_modules/uikit/dist/js/uikit-icons.min.js ./public
 
 # 3 - Inject into index.html
 sed -i "/<body>/a\ ${HTML}" ./public/index.html
