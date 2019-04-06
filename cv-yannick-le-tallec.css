@@ -83,6 +83,9 @@
 	.competence {
 		margin: 5px 0;
 	}
+	.competence h3 {
+		font-size: 1em;
+	}
 	.hero h2 {
 		line-height: 2em;
 		letter-spacing: 0.25em;
@@ -124,7 +127,6 @@
 	}
 }
 @media screen and ( max-width: 820px ){
-	.
 	.stack {
 		display: block;
 	}
@@ -163,6 +165,7 @@
 	}
 	.competence h3 {
 		font-size: 0.8em !important;
+		font-size: 1em;
 	}	
 }
 
