@@ -10,11 +10,11 @@ module.exports = {
 				m( "span", { "class": "t" }, " CDI" )
 			),
 			m( "span", { "class" : "mobilite" }, "Mobilité : ",
-				m( "span", { "class": "t" }, " Grand Ouest & +" )
-			),
+				m( "span", { "class": "t" }, " Grand Ouest" )
+			)/*,
 			m( "span", { "class" : "tjm" }, "Rémunération : ",
 				m( "span", { "class": "t" }, " 50 k€" )
-			)
+			)*/
 		] )
 	}
 }

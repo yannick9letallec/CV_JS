@@ -7,7 +7,7 @@ module.exports = {
 	view: function( vnode ) {
 		return m( "DIV", { "class" : "divers" }, [
 			m( "H3", "\u272A ANNEXE : " ),
-			m( "UL", { class: "uk-tab", "data-uk-tab": "{connect:'#divers_content'}" }, vnode.attrs.divers.divers_titre.map( function( v, i, a ){
+			m( "UL", { id: 'divers_title', class: "uk-tab", "data-uk-tab": "{connect:'#divers_content'}" }, vnode.attrs.divers.divers_titre.map( function( v, i, a ){
 				return m( "LI",
 					m( "A", { onclick: vnode.attrs.toggleSign }, m.trust( v ) )
 				)
