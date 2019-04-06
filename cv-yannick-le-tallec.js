@@ -22,9 +22,6 @@ var {
 	FOOTER 
 } = require( './components/all.js' )
 
-// GLOB VARS
-var contactInitialText
-
 var MAIN = {
 	view: function() {
 		return m( "main", [

@@ -14,10 +14,18 @@
  * CONTACT HEADER */
 .contact {
 	position: absolute;
+	font-weight: bold;
 	right: 10px;
 	cursor: pointer;
 	var( --bgcolor-1 );
 }
+.contact_details {
+	display: block;
+	letter-spacing: 0.2em;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
 .d {
 	color: #f5a106 !important;
 	font-weight: bold;
@@ -98,6 +106,9 @@
 	.etat {
 		display: flex;
 		flex-direction: column;
+	}
+	.competence {
+		margin: 5px 0;
 	}
 	.hero h2 {
 		line-height: 2em;
@@ -229,8 +240,12 @@
 .competence div {
 	margin-bottom: 10px;
 }
-.competence, .competence h3, .competence ul {
+.competence h3 {
+	font-weight: bold;
+}
+.competence, .competence ul {
 	font-size: 1.0em;
+	font-weight: initial;
 	color: #5c066c !important;
 	background-color: #e6e6e6;
 }

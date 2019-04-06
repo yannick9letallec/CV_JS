@@ -32,7 +32,7 @@ echo '--------------------------------------------------------------'
 cp index.html ./public/index.html
 cp functions.js ./public/
 cp data.js ./public/
-cp cv-yannick-le-tallec.css ./public/
+cp cv-yannick-le-tallec.css ./public
 cp -r images ./public
 cp node_modules/mithril/mithril.min.js ./public
 cp node_modules/uikit/dist/css/uikit.min.css ./public

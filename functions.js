@@ -1,6 +1,3 @@
-// GLOB VARS
-var contactInitialText
-
 function toggleSign( event ){
 	var lis = document.querySelectorAll( ".uk-tab li a" ),
 		n = lis.length, k, sibling_text
@@ -50,16 +47,19 @@ function removeTitleShake( event ){
 	event.target.classList.remove( "uk-animation-shake" )
 }
 
-contactInitialText = "",
+var contactInitialText = "",
 	init = 0
+
 function contact( event, telephone, email ) {
 	var el = event.target,
-		data = el.dataset
+		data = el.dataset,
+		nom = document.getElementById( 'nom' )
+
+	nom.style.visibility = 'hidden'
 
 	if( init === 0 ){
-
 		contactInitialText = el.innerText
-		el.innerText = ""
+		el.innerHTML = ""
 
 		m.mount( el, { 
 			view: function(){ 
@@ -67,6 +67,12 @@ function contact( event, telephone, email ) {
 					telephone: data[ 'tel' ], 
 					email: data[ 'email' ] 
 				} ) 
+			},
+			oncreate: function( vnode ){
+				// Force to wait until next tick / reflow
+				setTimeout( function() {
+					document.getElementsByClassName( 'contact' )[ 0 ].style.position = 'initial'
+				}, 0 )
 			}
 		} )
 
@@ -74,7 +80,13 @@ function contact( event, telephone, email ) {
 	}
 }
 function reinitContact( event ){
-	console.dir( event ) 
+	nom = document.getElementById( 'nom' )
+	nom.style.visibility = 'visible'
+
+	setTimeout( function() {
+		document.getElementsByClassName( 'contact' )[ 0 ].style.position = 'absolute'
+	}, 0 )
+
 	event.target.innerText = contactInitialText
 	init = 0
 }
@@ -82,7 +94,6 @@ function reinitContact( event ){
 module.exports = {
 	applyAnimation,
 	contact,
-	contactInitialText,
 	toggleSign,
 	reinitContact,
 	addTitleShake,
