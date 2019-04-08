@@ -43,5 +43,12 @@ cp node_modules/uikit/dist/js/uikit-icons.min.js ./public
 sed -i "/<body>/a\ ${HTML}" ./public/index.html
 
 # 4 - crafting functions.js
+# suppression du 'node code'
 sed -i '/^module/,$d' public/functions.js
-cat ./components/contact.js >> public/functions.js
+# injection des composants
+cat ./components/header.js >> public/functions.js && cat ./components/contact.js >> public/functions.js
+# adapt component's code
+# delete require line
+sed -i '/require/d; /console/d; /^$/d;' public/functions.js
+# rename 'module.exports' to 'let HEADER'
+sed -i 's/module.exports/let HEADER/' public/functions.js

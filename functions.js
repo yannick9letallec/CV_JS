@@ -46,49 +46,32 @@ function addTitleShake( event ){
 function removeTitleShake( event ){
 	event.target.classList.remove( "uk-animation-shake" )
 }
-
-var contactInitialText = "",
-	init = 0
-
 function contact( event, telephone, email ) {
-	var el = event.target,
-		data = el.dataset,
-		nom = document.getElementById( 'nom' )
+	console.log( 'CONTACT ' ) 
 
-	nom.style.visibility = 'hidden'
+	var el = event.target.parentNode, // .contact
+		data = event.target.dataset,
+		el_content = el.innerHTML.toString()
 
-	if( init === 0 ){
-		contactInitialText = el.innerText
-		el.innerHTML = ""
+	el.innerHTML = ""
 
-		m.mount( el, { 
-			view: function(){ 
-				return m( CONTACT, { 
-					telephone: data[ 'tel' ], 
-					email: data[ 'email' ] 
-				} ) 
-			},
-			oncreate: function( vnode ){
-				// Force to wait until next tick / reflow
-				setTimeout( function() {
-					document.getElementsByClassName( 'contact' )[ 0 ].style.position = 'initial'
-				}, 0 )
-			}
-		} )
-
-		init = 1
-	}
+	m.mount( el, { 
+		view: function(){ 
+			return m( CONTACT, { 
+				onmouseleave: function( event ){
+					reinitContact( event, data[ 'tel'], data['email'], el_content )
+				},
+				telephone: data[ 'tel' ], 
+				email: data[ 'email' ]
+			} ) 
+		}
+	} )
 }
-function reinitContact( event ){
-	nom = document.getElementById( 'nom' )
-	nom.style.visibility = 'visible'
+function reinitContact( event, tel, email, html ){
+	console.log( 'REINIT CONTACT ' ) 
+	el = document.getElementsByTagName( 'header' )[ 0 ]
 
-	setTimeout( function() {
-		document.getElementsByClassName( 'contact' )[ 0 ].style.position = 'absolute'
-	}, 0 )
-
-	event.target.innerText = contactInitialText
-	init = 0
+	el.innerHTML = html
 }
 
 module.exports = {

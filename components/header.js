@@ -4,7 +4,7 @@ module.exports = {
 	view: function( vnode ) {
 		return m( "header", { "uk-scrollspy": "cls:uk-animation-fade; repeat: true;" }, [
 			m( "span", { "id": 'nom' }, "Yannick Le Tallec" ),
-			m( "span", { "data-tel": vnode.attrs.tel, "data-email": vnode.attrs.email, onmouseover: vnode.attrs.onmouseover, onmouseleave: vnode.attrs.onmouseleave, onclick:vnode.attrs.onclick, class: "contact" }, "CONTACT" )
+			m( "span", { "data-tel": vnode.attrs.tel, "data-email": vnode.attrs.email, onmouseenter: vnode.attrs.onmouseenter, onclick:vnode.attrs.onclick, class: "contact" }, "CONTACT" )
 		] ) 
 	}
 }

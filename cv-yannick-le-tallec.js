@@ -25,7 +25,7 @@ var {
 var MAIN = {
 	view: function() {
 		return m( "main", [
-			m( HEADER, { tel: data.telephone, email: data.email, onmouseover: 'contact( event)', onmouseleave: 'reinitContact( event )', onclick: 'contact( event)' } ),
+			m( HEADER, { tel: data.telephone, email: data.email, onmouseenter: 'contact( event)', onclick: 'contact( event)' } ),
 
 			m( SEPARATEUR_B ),
 
