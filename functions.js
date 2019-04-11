@@ -1,3 +1,6 @@
+// local vars
+let default_lang = 'uk'
+
 function toggleSign( event ){
 	var lis = document.querySelectorAll( ".uk-tab li a" ),
 		n = lis.length, k, sibling_text
@@ -72,6 +75,11 @@ function reinitContact( event, tel, email, html ){
 	el = document.getElementsByTagName( 'header' )[ 0 ]
 
 	el.innerHTML = html
+}
+
+function capitalize (s) {
+	  if (typeof s !== 'string') return ''
+	  return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
 module.exports = {

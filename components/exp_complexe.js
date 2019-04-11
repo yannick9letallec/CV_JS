@@ -1,9 +1,6 @@
 var m = require( 'mithril' )
 
 module.exports = {
-	state: {
-
-	},
 	view: function( vnode ) {
 		return m( "DIV", { "id": "experiences_autres", "class": "uk-accordion-content" }, vnode.attrs.autres.map( function( v, i, a ) { 
 			return m( "DIV", m.trust( v.description ), [ 

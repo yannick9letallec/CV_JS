@@ -8,6 +8,9 @@ let data = require( "./data.js" ),
 	render = require('mithril-node-render'),
 	{ toggleSign, contact, reinitContact, clickTitleShake, addTitleShake, removeTitleShake, initExperienceAnimation, applyAnimation } = require( './functions.js' )
 
+// getting lang arg
+let default_lang = process.argv[ 2 ]
+
 // IMPORT COMPONENT
 var { 
 	HEADER, 
@@ -29,7 +32,7 @@ var MAIN = {
 
 			m( SEPARATEUR_B ),
 
-			m( ETAT ),
+			m( ETAT, { data: data.lang[ default_lang ].etat }),
 
 			m( HERO, { onclick: 'clickTitleShake( event )', onmouseleave: 'addTitleShake( event )', onmouseenter: 'removeTitleShake( event )' } ),
 
@@ -39,14 +42,14 @@ var MAIN = {
 
 			m( SEPARATEUR_B ),
 
-			m( VALEURS, { data, VALEUR_ARTICLE } ),
+			m( VALEURS, { data: data.lang[ default_lang ].valeurs, VALEUR_ARTICLE } ), 
 
 			m( SEPARATEUR_W ),
 			m( SEPARATEUR_V ),
 			m( SEPARATEUR_V ),
 			m( SEPARATEUR_W ),
 
-			m( COMPETENCES, { data, applyAnimation: 'applyAnimation( event, ind, t )' } ),
+			m( COMPETENCES, { data: data.lang[ default_lang ].competences, applyAnimation: 'applyAnimation( event, ind, t )' } ),
 
 			m( SEPARATEUR_B ),
 			m( SEPARATEUR_W ),
@@ -54,7 +57,7 @@ var MAIN = {
 			m( SEPARATEUR_W ),
 			m( SEPARATEUR_B ),
 
-			m( EXPERIENCES, { data, EXP_COMPLEXE, EXP_SIMPLE, initExperienceAnimation: 'initExperienceAnimation( event, i )' } ),
+			m( EXPERIENCES, { data: data.lang[ default_lang ].experiences, EXP_COMPLEXE, EXP_SIMPLE, initExperienceAnimation: 'initExperienceAnimation( event, i )' } ),
 
 			m( SEPARATEUR_W ),
 			m( SEPARATEUR_B ),
@@ -62,7 +65,7 @@ var MAIN = {
 			m( SEPARATEUR_B ),
 			m( SEPARATEUR_W ),
 
-			m( DIVERS, { divers: data.divers, toggleSign: 'toggleSign( event )' } ),
+			m( DIVERS, { divers: data.lang[ default_lang ].divers, toggleSign: 'toggleSign( event )' } ),
 
 			m( SEPARATEUR_B ),
 			m( SEPARATEUR_W ),

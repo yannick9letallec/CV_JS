@@ -1,9 +1,6 @@
 var m = require( 'mithril' )
 
 module.exports = {
-	state: {
-
-	},
 	view: function( vnode ) {
 		return m( "article", { "class": "uk-article" }, [
 			m( "h2", { "class": "uk-article-title uk-text-center" }, [
