@@ -1,56 +1,56 @@
 #!/bin/zsh
 
-languages=( fr uk )
-# 0 - purging public repo
-rm -r ./public
-mkdir -p ./public
+if [ ! -d ./public ]
+then
+	mkdir ./public
 
-for i in ${languages};
-	do mkdir ./public/${i};
+fi
 
-	# 1 - get html tags
-	# - some tweaks are required to remove quotes added by js console.log
-	echo "Generating HTML tags for : ${i}"
-	HTML=`node cv-yannick-le-tallec.js ${i}`
-	echo '--------------------------------------------------------------'
-	HTML_1=${#HTML}
-	HTML_L=`echo -n ${HTML} | wc -c`
-	echo ${HTML_L}
-	echo '--------------------------------------------------------------'
-	HTML_L=`expr ${HTML_L} - 2`
-	echo ${HTML_L}
-	echo '--------------------------------------------------------------'
-	HTML=`expr substr $HTML 2 ${HTML_L}`
-	echo ${HTML}
-	echo '--------------------------------------------------------------'
+rm -r ./public/*
 
-	# 2 - copy files to public
-	p=./public/${i}
+# 0 - remove index.html from public
+rm ./public/index.html 2> /dev/null
+rm ./public/functions.js 2> /dev/null
+rm ./public/cv-yannick-le-tallec.css 2> /dev/null
 
-	cp index.html ${p}/index.html
-	cp functions.js ${p}/
-	cp data.js ${p}/
-	cp cv-yannick-le-tallec.css ${p}
-	cp -r images ${p}
-	cp node_modules/mithril/mithril.min.js ${p}
-	cp node_modules/uikit/dist/css/uikit.min.css ${p}
-	cp node_modules/uikit/dist/js/uikit.min.js ${p}
-	cp node_modules/uikit/dist/js/uikit-icons.min.js ${p}
+# 1 - get html tags
+# - some tweaks are required to remove quotes added by js console.log
+HTML=`node cv-yannick-le-tallec.js`
+echo '--------------------------------------------------------------'
+HTML_1=${#HTML}
+HTML_L=`echo -n ${HTML} | wc -c`
+echo ${HTML_L}
+echo '--------------------------------------------------------------'
+HTML_L=`expr ${HTML_L} - 2`
+echo ${HTML_L}
+echo '--------------------------------------------------------------'
+HTML=`expr substr $HTML 2 ${HTML_L}`
+echo ${HTML}
+echo '--------------------------------------------------------------'
 
-	# 3 - Inject into index.html
-	sed -i "/<body>/a\ ${HTML}" ${p}/index.html
+# 2 - copy files to public
+cp robots.txt ./public
+cp sitemap.xml //public
+cp index.html ./public/index.html
+cp functions.js ./public
+cp data.js ./public
+cp cv-yannick-le-tallec.css ./public
+cp -r images ./public
+cp node_modules/mithril/mithril.min.js ./public
+cp node_modules/uikit/dist/css/uikit.min.css ./public
+cp node_modules/uikit/dist/js/uikit.min.js ./public
+cp node_modules/uikit/dist/js/uikit-icons.min.js ./public
 
-	# 4 - crafting functions.js
-	# suppression du 'node code'
-	sed -i '/^module/,$d' ${p}/functions.js
-	# injection des composants
-	cat ./components/header.js >> ${p}/functions.js && cat ./components/contact.js >> ${p}/functions.js
-	## adapt component's code ## suppression des consoles log/ dir ...
-	# delete require line
-	sed -i '/require/d; /console/d; /^$/d;' ${p}/functions.js
-	# rename 'module.exports' to 'let HEADER'
-	sed -i 's/module.exports/let HEADER/' ${p}/functions.js
+# 3 - Inject into index.html
+sed -i "/<body>/a\ ${HTML}" ./public/index.html
 
-done;
-# 5 - right management
-chmod -R 775 ./public/*
+# 4 - crafting functions.js
+# suppression du 'node code'
+sed -i '/^module/,$d' public/functions.js
+# injection des composants
+cat ./components/header.js >> public/functions.js && cat ./components/contact.js >> public/functions.js
+# adapt component's code
+# delete require line
+sed -i '/require/d; /console/d; /^$/d;' public/functions.js
+# rename 'module.exports' to 'let HEADER'
+sed -i 's/module.exports/let HEADER/' public/functions.js
