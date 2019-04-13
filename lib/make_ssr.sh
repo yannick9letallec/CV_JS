@@ -1,11 +1,5 @@
 #!/bin/zsh
 
-if [ ! -d ./public ]
-then
-	mkdir ./public
-
-fi
-
 languages=( fr uk )
 # 0 - purging public repo
 rm -r ./public
