@@ -1,0 +1,3 @@
+Robots: *
+Disallow:
+Sitemap: sitemap.xml

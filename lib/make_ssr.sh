@@ -1,5 +1,11 @@
 #!/bin/zsh
 
+if [ ! -d ./public ]
+then
+	mkdir ./public
+
+fi
+
 languages=( fr uk )
 # 0 - purging public repo
 rm -r ./public
@@ -27,6 +33,8 @@ for i in ${languages};
 	# 2 - copy files to public
 	p=./public/${i}
 
+	cp robots.txt ${p}/robots.txt
+	cp sitemap.xml ${p}/sitemap.xml
 	cp index.html ${p}/index.html
 	cp functions.js ${p}/
 	cp data.js ${p}/
