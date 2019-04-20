@@ -3,6 +3,8 @@ module.exports = {
 	email: 'yannick9letallec@gmail.com',
 	lang: {
 		fr: {
+			state: 1,
+			flag: './images/drapeau_français.jpg',
 			etat: {
 				contrat: 'Contrat : ',
 				contrat_type: 'CDI',
@@ -254,6 +256,8 @@ module.exports = {
 			}
 		},
 		uk: {
+			state: 1,
+			flag: './images/drapeau_americain.jpg',
 			etat: {
 				contrat: 'Contract : ',
 				contrat_type: 'Long Term',
@@ -505,8 +509,12 @@ module.exports = {
 			}
 		},
 		es: {
+			state: 0,
+			flag: './images/drapeau_espagnol.jpg',
 		},
 		bzh: {
+			state: 0,
+			flag: './images/drapeau_breton.jpg'
 		}
 	}
 }

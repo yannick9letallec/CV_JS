@@ -8,7 +8,7 @@ module.exports = {
 				return m( "LI", {}, [
 					m( "A", { "uk-scrollspy": "cls:" + vnode.attrs.initExperienceAnimation + "; repeat: true;", "class": "titre_experience uk-grid uk-accordion-title" }, [
 						m( "SPAN", { "class": "entreprise uk-width-1-20" }, [
-							v.logo ? m( "img", { "alt": v.img_alt, "class": "image_experience", "src": v.experience.logo } ) : "", 
+							v.experience.logo ? m( "img", { "alt": v.experience.img_alt, "class": "image_experience", "src": v.experience.logo } ) : "", 
 						] ),
 						m( "SPAN", { "class": "entreprise uk-width-1-5" }, [
 							m( "SPAN", { "class": "uk-badge" }, " Entreprise : " ),

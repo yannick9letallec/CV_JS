@@ -14,6 +14,7 @@ let default_lang = process.argv[ 2 ]
 
 // IMPORT COMPONENT
 var { 
+	LANGUAGES,
 	HEADER, 
 	SEPARATEUR_B, SEPARATEUR_W, SEPARATEUR_V, 
 	ETAT, 
@@ -29,7 +30,7 @@ var {
 var MAIN = {
 	view: function() {
 		return m( "main", [
-			m( HEADER, { tel: data.telephone, email: data.email, onmouseenter: 'contact( event)', onclick: 'contact( event)' } ),
+			m( HEADER, { tel: data.telephone, email: data.email, onmouseenter: 'contact( event)', onclick: 'contact( event)', LANGUAGES } ),
 
 			m( SEPARATEUR_B ),
 

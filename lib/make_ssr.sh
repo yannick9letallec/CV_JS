@@ -5,9 +5,6 @@ languages=( fr uk )
 rm -r ./public
 mkdir -p ./public
 
-chgrp -R www-data /var/www/CV_JS
-chmod -R 770 /var/www/CV_JS
-
 for i in ${languages};
 	do mkdir ./public/${i};
 
@@ -58,4 +55,6 @@ for i in ${languages};
 
 done;
 # 5 - right management
-chmod -R 775 ./public/*
+chgrp -R www-data /var/www/CV_JS
+chmod -R 770 /var/www/CV_JS
+
