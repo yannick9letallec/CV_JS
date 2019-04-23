@@ -13,6 +13,54 @@
 /*
  * CONTACT HEADER */
 
+#languages {
+	position: relative;
+}
+.default_flag {
+	cursor: pointer;
+	width: 40px;
+	height: auto;
+	margin: 0 10px;
+	border: 2px solid white;
+}
+.flags {
+	position: relative;
+	display: flex;
+	flex-flow: column nowrap;
+	left: 0px;
+	width: 40px;
+	transition: all 0.5s ease 0s;
+}
+.flags_show {
+	top: 0px !important;
+	transition: all 0.5s ease 0s;
+}
+.flag_img {
+	cursor: pointer;
+	border: 2px solid white;
+}
+.flags_sub_div {
+	position: absolute;
+	overflow: hidden;
+	margin-left: 10px;
+}
+.body_rotate {
+	transform: rotateY( 180deg ) perspective( 200px );
+	transform-style: preserve-3d;
+	opacity: 0;
+	transition: all 0.5s ease 0s; 
+}
+.body_default {
+	transform: rotate( 0deg ) perspective( 200px );
+	transform-style: preserve-3d;
+	opacity: 1;
+	transition: all 0.5s ease 0s; 
+}
+
+.hidden {
+	display: none;
+}
+
 /* matrix( scaleX, skewY, skewX, scaleY, translateX, translateY ) */
 @keyframes contact {
 	0% { transform: rotate( 0deg ); }

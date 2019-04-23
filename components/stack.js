@@ -1,12 +1,9 @@
 var m = require( 'mithril' )
 
 module.exports = {
-	state: {
-
-	},
 	view: function( vnode ) {
 		return m( "section", { "class": "stack uk-grid-small uk-child-width-expand@s uk-text-center" }, [
-				m( "div", { "id": "front", "uk-scrollspy": "cls: uk-animation-slide-left; repeat: true;" }, [
+				m( "div", { "uk-scrollspy": "cls: uk-animation-slide-left; repeat: true;" }, [
 					m( "div", { "class": "ui uk-card uk-card-default uk-card-hover" }, [
 						m( "h3", { "class": "uk-card-header" }, "FRONT" ),
 						m( "div", { "class": "uk-card-body" }, [

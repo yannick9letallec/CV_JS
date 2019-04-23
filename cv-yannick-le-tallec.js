@@ -7,10 +7,18 @@ require('mithril/test-utils/browserMock')(global)
 let data = require( "./data.js" ),
 	m = require( 'mithril' ),
 	render = require('mithril-node-render'),
-	{ toggleSign, contact, reinitContact, clickTitleShake, addTitleShake, removeTitleShake, initExperienceAnimation, applyAnimation } = require( './functions.js' )
+	{ getNavigatorDefaultLanguage, toggleSign, contact, reinitContact, clickTitleShake, addTitleShake, removeTitleShake, initExperienceAnimation, applyAnimation } = require( './functions.js' )
 
 // getting lang arg
 let default_lang = process.argv[ 2 ]
+
+// Factoring lang object
+let langs = []
+for( let key in data.lang ){
+	if( data.lang[ key ].active ){
+		langs.push( key )
+	} 
+}
 
 // IMPORT COMPONENT
 var { 
@@ -29,8 +37,8 @@ var {
 
 var MAIN = {
 	view: function() {
-		return m( "main", [
-			m( HEADER, { tel: data.telephone, email: data.email, onmouseenter: 'contact( event)', onclick: 'contact( event)', LANGUAGES } ),
+		return m( "main", { 'data-lang': langs.join() }, [
+			m( HEADER, { contact: data.lang[ default_lang ].contact, tel: data.lang[ default_lang ].telephone, email: data.email, onmouseenter: 'contact( event)', onclick: 'contact( event)', LANGUAGES } ),
 
 			m( SEPARATEUR_B ),
 
